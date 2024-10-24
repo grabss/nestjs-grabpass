@@ -1,0 +1,16 @@
+{
+  "projects": {
+    "nestjs-grabpass": {
+      "type": "library",
+      "root": "libs/nestjs-grabpass",
+      "entryFile": "index",
+      "sourceRoot": "libs/nestjs-grabpass/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/nestjs-grabpass/tsconfig.lib.json"
+      }
+    }
+  },
+  "compilerOptions": {
+    "webpack": true
+  }
+}
