@@ -17,6 +17,8 @@
   "dependencies": {
     "@nestjs/common": "^10.0.0",
     "@nestjs/core": "^10.0.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-unused-imports": "^4.1.4",
     "grabpass": "https://github.com/grabss/grabpass",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1"
