@@ -28,8 +28,7 @@ export default [
     },
     languageOptions: {
       globals: {
-        ...globals.node,
-        ...globals.jest
+        ...globals.node
       },
       parser: tsParser,
       ecmaVersion: 5,
