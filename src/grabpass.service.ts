@@ -1,11 +1,10 @@
-import { Inject, Injectable } from '@nestjs/common'
-import { Grabpass } from 'grabpass'
+import { Injectable } from '@nestjs/common'
 
 @Injectable()
 export class GrabpassService {
-  constructor(@Inject('GRABPASS') private readonly grabpass: Grabpass) {}
+  constructor() {}
 
   test() {
-    return this.grabpass
+    return 'test'
   }
 }
