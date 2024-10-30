@@ -1,6 +1,6 @@
-import { GrabpassModuleOptions } from './grabpass.interface';
+import { Grabpass } from 'grabpass';
 export declare class GrabpassService {
-    private readonly options;
-    constructor(options: GrabpassModuleOptions);
-    test(): GrabpassModuleOptions;
+    private readonly grabpass;
+    constructor(grabpass: Grabpass);
+    test(): Grabpass;
 }
