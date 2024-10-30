@@ -19,7 +19,7 @@ let GrabpassModule = GrabpassModule_1 = class GrabpassModule {
         };
         return {
             module: GrabpassModule_1,
-            providers: [grabpassArgsProvider, grabpass_provider_1.grabpassProvider]
+            providers: [grabpassArgsProvider, grabpass_provider_1.grabpassProvider, grabpass_service_1.GrabpassService]
         };
     }
 };
