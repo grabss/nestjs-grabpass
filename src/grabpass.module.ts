@@ -5,6 +5,7 @@ import { grabpassProvider } from './grabpass.provider'
 import { GrabpassService } from './grabpass.service'
 
 @Module({
+  providers: [GrabpassService],
   exports: [GrabpassService]
 })
 export class GrabpassModule {
@@ -16,8 +17,7 @@ export class GrabpassModule {
 
     return {
       module: GrabpassModule,
-      providers: [grabpassArgsProvider, grabpassProvider, GrabpassService],
-      exports: [GrabpassService]
+      providers: [grabpassArgsProvider, grabpassProvider]
     }
   }
 }

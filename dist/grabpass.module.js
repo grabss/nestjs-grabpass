@@ -19,14 +19,14 @@ let GrabpassModule = GrabpassModule_1 = class GrabpassModule {
         };
         return {
             module: GrabpassModule_1,
-            providers: [grabpassArgsProvider, grabpass_provider_1.grabpassProvider, grabpass_service_1.GrabpassService],
-            exports: [grabpass_service_1.GrabpassService]
+            providers: [grabpassArgsProvider, grabpass_provider_1.grabpassProvider]
         };
     }
 };
 exports.GrabpassModule = GrabpassModule;
 exports.GrabpassModule = GrabpassModule = GrabpassModule_1 = __decorate([
     (0, common_1.Module)({
+        providers: [grabpass_service_1.GrabpassService],
         exports: [grabpass_service_1.GrabpassService]
     })
 ], GrabpassModule);
