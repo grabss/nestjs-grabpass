@@ -1,3 +1,5 @@
-export type GrabpassModuleOptions = {
-  todo: string
+import { GrabpassConstructorArgs } from 'grabpass'
+
+export type GrabpassModuleArgs = {
+  config: GrabpassConstructorArgs['config']
 }
