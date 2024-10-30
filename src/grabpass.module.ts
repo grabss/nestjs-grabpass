@@ -2,6 +2,7 @@ import { DynamicModule, Module, Provider } from '@nestjs/common'
 
 import { GrabpassModuleArgs } from './grabpass.interface'
 import { grabpassProvider } from './grabpass.provider'
+import { GrabpassService } from './grabpass.service'
 
 @Module({})
 export class GrabpassModule {
@@ -13,8 +14,8 @@ export class GrabpassModule {
 
     return {
       module: GrabpassModule,
-      providers: [grabpassArgsProvider, grabpassProvider],
-      exports: ['GRABPASS']
+      providers: [grabpassArgsProvider, grabpassProvider, GrabpassService],
+      exports: [GrabpassService]
     }
   }
 }
