@@ -4,7 +4,9 @@ import { GrabpassModuleArgs } from './grabpass.interface'
 import { grabpassProvider } from './grabpass.provider'
 import { GrabpassService } from './grabpass.service'
 
-@Module({})
+@Module({
+  exports: [GrabpassService]
+})
 export class GrabpassModule {
   static forRoot(args: GrabpassModuleArgs): DynamicModule {
     const grabpassArgsProvider: Provider = {

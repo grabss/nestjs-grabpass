@@ -26,6 +26,8 @@ let GrabpassModule = GrabpassModule_1 = class GrabpassModule {
 };
 exports.GrabpassModule = GrabpassModule;
 exports.GrabpassModule = GrabpassModule = GrabpassModule_1 = __decorate([
-    (0, common_1.Module)({})
+    (0, common_1.Module)({
+        exports: [grabpass_service_1.GrabpassService]
+    })
 ], GrabpassModule);
 //# sourceMappingURL=grabpass.module.js.map
