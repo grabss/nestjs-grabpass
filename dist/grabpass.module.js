@@ -10,6 +10,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.GrabpassModule = void 0;
 const common_1 = require("@nestjs/common");
 const grabpass_provider_1 = require("./grabpass.provider");
+const grabpass_service_1 = require("./grabpass.service");
 let GrabpassModule = GrabpassModule_1 = class GrabpassModule {
     static forRoot(args) {
         const grabpassArgsProvider = {
@@ -18,8 +19,8 @@ let GrabpassModule = GrabpassModule_1 = class GrabpassModule {
         };
         return {
             module: GrabpassModule_1,
-            providers: [grabpassArgsProvider, grabpass_provider_1.grabpassProvider],
-            exports: ['GRABPASS']
+            providers: [grabpassArgsProvider, grabpass_provider_1.grabpassProvider, grabpass_service_1.GrabpassService],
+            exports: [grabpass_service_1.GrabpassService]
         };
     }
 };
