@@ -16,6 +16,7 @@ export class GrabpassModule {
     }
 
     return {
+      global: true,
       module: GrabpassModule,
       providers: [grabpassModuleOptionsProvider]
     }

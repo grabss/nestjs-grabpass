@@ -18,6 +18,7 @@ let GrabpassModule = GrabpassModule_1 = class GrabpassModule {
             useValue: options
         };
         return {
+            global: true,
             module: GrabpassModule_1,
             providers: [grabpassModuleOptionsProvider]
         };
