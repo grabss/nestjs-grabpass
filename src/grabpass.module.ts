@@ -28,12 +28,7 @@ export class GrabpassModule {
 
     return {
       module: GrabpassModule,
-      providers: [
-        grabpassModuleOptionsProvider,
-        grabpassProvider,
-        GrabpassService
-      ],
-      exports: [GrabpassService]
+      providers: [grabpassModuleOptionsProvider, grabpassProvider]
     }
   }
 }
