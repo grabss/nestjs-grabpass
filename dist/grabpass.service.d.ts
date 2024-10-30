@@ -1,4 +1,6 @@
+import { Grabpass } from 'grabpass';
 export declare class GrabpassService {
-    constructor();
-    test(): string;
+    private readonly grabpass;
+    constructor(grabpass: Grabpass);
+    test(): Grabpass;
 }
