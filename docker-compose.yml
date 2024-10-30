@@ -1,0 +1,11 @@
+services:
+  nestjs-grabpass:
+    image: nestjs-grabpass
+    container_name: nestjs-grabpass
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/nestjs-grabpass

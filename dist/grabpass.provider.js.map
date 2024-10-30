@@ -1,0 +1,1 @@
+{"version":3,"file":"grabpass.provider.js","sourceRoot":"","sources":["../src/grabpass.provider.ts"],"names":[],"mappings":";;;AACA,uCAAmC;AAItB,QAAA,gBAAgB,GAAa;IACxC,OAAO,EAAE,UAAU;IACnB,UAAU,EAAE,CAAC,IAAwB,EAAE,EAAE;QACvC,OAAO,IAAI,mBAAQ,CAAC;YAClB,MAAM,EAAE,IAAI,CAAC,MAAM;SACpB,CAAC,CAAA;IACJ,CAAC;IACD,MAAM,EAAE,CAAC,eAAe,CAAC;CAC1B,CAAA"}
