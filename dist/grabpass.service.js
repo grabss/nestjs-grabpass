@@ -14,20 +14,19 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GrabpassService = void 0;
 const common_1 = require("@nestjs/common");
-const grabpass_1 = require("grabpass");
 const grabpass_constants_1 = require("./grabpass.constants");
 let GrabpassService = class GrabpassService {
-    constructor(grabpass) {
-        this.grabpass = grabpass;
+    constructor(options) {
+        this.options = options;
     }
     test() {
-        return this.grabpass;
+        return this.options;
     }
 };
 exports.GrabpassService = GrabpassService;
 exports.GrabpassService = GrabpassService = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, common_1.Inject)(grabpass_constants_1.GRABPASS)),
-    __metadata("design:paramtypes", [grabpass_1.Grabpass])
+    __param(0, (0, common_1.Inject)(grabpass_constants_1.GRABPASS_MODULE_OPTIONS)),
+    __metadata("design:paramtypes", [Object])
 ], GrabpassService);
 //# sourceMappingURL=grabpass.service.js.map
