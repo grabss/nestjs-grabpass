@@ -9,6 +9,14 @@
     "type": "git",
     "url": "https://github.com/grabss/nestjs-grabpass.git"
   },
+  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\"",
