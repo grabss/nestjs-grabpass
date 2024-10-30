@@ -1,16 +1,13 @@
 import { Inject, Injectable } from '@nestjs/common'
+import { Grabpass } from 'grabpass'
 
-import { GRABPASS_MODULE_OPTIONS } from './grabpass.constants'
-import { GrabpassModuleOptions } from './grabpass.interface'
+import { GRABPASS } from './grabpass.constants'
 
 @Injectable()
 export class GrabpassService {
-  constructor(
-    @Inject(GRABPASS_MODULE_OPTIONS)
-    private readonly options: GrabpassModuleOptions
-  ) {}
+  constructor(@Inject(GRABPASS) private readonly grabpass: Grabpass) {}
 
   test() {
-    return this.options
+    return this.grabpass
   }
 }
