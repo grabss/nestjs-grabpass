@@ -20,8 +20,18 @@ let GrabpassService = class GrabpassService {
     constructor(grabpass) {
         this.grabpass = grabpass;
     }
-    test() {
-        return this.grabpass;
+    createAuthTokens({ accessTokenPayload, refreshTokenPayload, config }) {
+        return this.grabpass.createAuthTokens({
+            accessTokenPayload,
+            refreshTokenPayload,
+            config
+        });
+    }
+    verifyAccessToken(token) {
+        return this.grabpass.verifyAccessToken(token);
+    }
+    verifyRefreshToken(token) {
+        return this.grabpass.verifyRefreshToken(token);
     }
 };
 exports.GrabpassService = GrabpassService;
