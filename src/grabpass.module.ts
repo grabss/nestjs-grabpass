@@ -4,8 +4,8 @@ import { Grabpass } from 'grabpass'
 import { GRABPASS, GRABPASS_MODULE_OPTIONS } from './grabpass.constants'
 import { GrabpassModuleOptions } from './grabpass.interface'
 import { GrabpassService } from './grabpass.service'
-import { GrabpassGraphqlAuthGuard } from './graphql/auth-guard'
-import { GrabpassRestAuthGuard } from './rest/auth-guard'
+import { GrabpassGraphqlAuthGuard } from './graphql/auth-decorators'
+import { GrabpassRestAuthGuard } from './rest/auth-decorators'
 
 @Global()
 @Module({
