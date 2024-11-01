@@ -20,6 +20,6 @@ export const AuthContext = createParamDecorator(
 )
 
 @Injectable()
-export class GrabpassGraphqlService {
+export class GrabpassGraphqlAuth {
   constructor(@Inject(GRABPASS) private readonly grabpass: Grabpass) {}
 }

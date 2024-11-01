@@ -4,6 +4,6 @@ import { Grabpass } from 'grabpass'
 import { GRABPASS } from './grabpass.constants'
 
 @Injectable()
-export class GrabpassRestService {
+export class GrabpassRestAuth {
   constructor(@Inject(GRABPASS) private readonly grabpass: Grabpass) {}
 }
