@@ -1,8 +1,10 @@
 import {
+  applyDecorators,
   createParamDecorator,
   Inject,
   Injectable,
-  UnauthorizedException
+  UnauthorizedException,
+  UseGuards
 } from '@nestjs/common'
 import { GqlExecutionContext } from '@nestjs/graphql'
 import { Grabpass } from 'grabpass'
@@ -20,6 +22,10 @@ export const AuthContext = createParamDecorator(
     return req[GRABPASS_AUTH_CONTEXT]
   }
 )
+
+export function Auth() {
+  return applyDecorators(UseGuards(GrabpassGraphqlAuthGuard))
+}
 
 @Injectable()
 export class GrabpassGraphqlAuthGuard implements CanActivate {
