@@ -9,33 +9,31 @@ import { Grabpass } from 'grabpass'
 
 import { GRABPASS } from '../grabpass.constants'
 
-import type { ExecutionContext } from '@nestjs/common'
+import type { CanActivate, ExecutionContext } from '@nestjs/common'
 import type { Request } from 'express'
 
 const GRABPASS_AUTH_CONTEXT = 'GRABPASS_AUTH_CONTEXT'
 
 export const AuthContext = createParamDecorator(
   (_, context: ExecutionContext) => {
-    return GqlExecutionContext.create(context).getContext().req[
-      GRABPASS_AUTH_CONTEXT
-    ]
+    const req: Request = GqlExecutionContext.create(context).getContext().req
+    return req[GRABPASS_AUTH_CONTEXT]
   }
 )
 
 @Injectable()
-export class GrabpassGraphqlAuthGuard {
+export class GrabpassGraphqlAuthGuard implements CanActivate {
   constructor(@Inject(GRABPASS) private readonly grabpass: Grabpass) {}
 
-  canActivate(context: ExecutionContext): boolean {
-    const ctx = GqlExecutionContext.create(context)
-    const req: Request = ctx.getContext().req
-    const authHeader = req.headers.authorization
+  canActivate(context: ExecutionContext) {
+    const req: Request = GqlExecutionContext.create(context).getContext().req
+    const authorization = req.headers.authorization
 
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    if (!authorization || !authorization.startsWith('Bearer ')) {
       throw new UnauthorizedException()
     }
 
-    const accessToken = authHeader.replace('Bearer ', '')
+    const accessToken = authorization.replace('Bearer ', '')
 
     try {
       req[GRABPASS_AUTH_CONTEXT] = this.grabpass.verifyAccessToken(accessToken)
