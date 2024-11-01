@@ -25,6 +25,8 @@
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
+    "@nestjs/graphql": "^12.2.1",
+    "@nestjs/platform-express": "^10.0.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-unused-imports": "^4.1.4",
     "grabpass": "0.1.3"
