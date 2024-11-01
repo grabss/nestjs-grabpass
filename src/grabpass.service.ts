@@ -5,9 +5,11 @@ import { GRABPASS } from './grabpass.constants'
 
 import type {
   AuthTokens,
-  GrabpassConfig,
   AccessTokenPayload,
-  RefreshTokenPayload
+  RefreshTokenPayload,
+  AccessTokenData,
+  RefreshTokenData,
+  PartialGrabpassConfig
 } from 'grabpass'
 
 @Injectable()
@@ -15,26 +17,29 @@ export class GrabpassService {
   constructor(@Inject(GRABPASS) private readonly grabpass: Grabpass) {}
 
   createAuthTokens({
-    accessTokenPayload,
-    refreshTokenPayload,
-    config
+    accessTokenData,
+    refreshTokenData
   }: {
-    accessTokenPayload: AccessTokenPayload
-    refreshTokenPayload: RefreshTokenPayload
-    config?: Partial<GrabpassConfig>
+    accessTokenData: AccessTokenData
+    refreshTokenData: RefreshTokenData
   }): AuthTokens {
     return this.grabpass.createAuthTokens({
-      accessTokenPayload,
-      refreshTokenPayload,
-      config
+      accessTokenData,
+      refreshTokenData
     })
   }
 
-  verifyAccessToken(token: string): AccessTokenPayload {
-    return this.grabpass.verifyAccessToken(token)
+  verifyAccessToken(
+    token: string,
+    config?: PartialGrabpassConfig
+  ): AccessTokenPayload {
+    return this.grabpass.verifyAccessToken(token, config)
   }
 
-  verifyRefreshToken(token: string): RefreshTokenPayload {
-    return this.grabpass.verifyRefreshToken(token)
+  verifyRefreshToken(
+    token: string,
+    config?: PartialGrabpassConfig
+  ): RefreshTokenPayload {
+    return this.grabpass.verifyRefreshToken(token, config)
   }
 }
