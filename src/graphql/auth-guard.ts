@@ -7,7 +7,7 @@ import {
 import { GqlExecutionContext } from '@nestjs/graphql'
 import { Grabpass } from 'grabpass'
 
-import { GRABPASS } from './grabpass.constants'
+import { GRABPASS } from '../grabpass.constants'
 
 const GRABPASS_AUTH_CONTEXT = 'GRABPASS_AUTH_CONTEXT'
 
@@ -20,6 +20,6 @@ export const AuthContext = createParamDecorator(
 )
 
 @Injectable()
-export class GrabpassGraphqlAuth {
+export class GrabpassGraphqlAuthGuard {
   constructor(@Inject(GRABPASS) private readonly grabpass: Grabpass) {}
 }

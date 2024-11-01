@@ -1,5 +1,3 @@
-export * from './grabpass-graphql.auth'
-export * from './grabpass-rest.auth'
 export * from './grabpass.interface'
 export * from './grabpass.module'
 export * from './grabpass.service'
