@@ -1,5 +1,5 @@
 import { GrabpassConstructorArgs } from 'grabpass'
 
-export type GrabpassModuleArgs = {
+export type GrabpassModuleOptions = {
   config: GrabpassConstructorArgs['config']
 }

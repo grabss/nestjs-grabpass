@@ -15,18 +15,28 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.GrabpassService = void 0;
 const common_1 = require("@nestjs/common");
 const grabpass_1 = require("grabpass");
+const grabpass_constants_1 = require("./grabpass.constants");
 let GrabpassService = class GrabpassService {
     constructor(grabpass) {
         this.grabpass = grabpass;
     }
-    test() {
-        return this.grabpass;
+    createAuthTokens({ accessTokenData, refreshTokenData }) {
+        return this.grabpass.createAuthTokens({
+            accessTokenData,
+            refreshTokenData
+        });
+    }
+    verifyAccessToken(token, config) {
+        return this.grabpass.verifyAccessToken(token, config);
+    }
+    verifyRefreshToken(token, config) {
+        return this.grabpass.verifyRefreshToken(token, config);
     }
 };
 exports.GrabpassService = GrabpassService;
 exports.GrabpassService = GrabpassService = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, common_1.Inject)('GRABPASS')),
+    __param(0, (0, common_1.Inject)(grabpass_constants_1.GRABPASS)),
     __metadata("design:paramtypes", [grabpass_1.Grabpass])
 ], GrabpassService);
 //# sourceMappingURL=grabpass.service.js.map

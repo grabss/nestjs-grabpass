@@ -9,22 +9,33 @@ var GrabpassModule_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GrabpassModule = void 0;
 const common_1 = require("@nestjs/common");
-const grabpass_provider_1 = require("./grabpass.provider");
+const grabpass_1 = require("grabpass");
+const grabpass_constants_1 = require("./grabpass.constants");
 const grabpass_service_1 = require("./grabpass.service");
 let GrabpassModule = GrabpassModule_1 = class GrabpassModule {
-    static forRoot(args) {
-        const grabpassArgsProvider = {
-            provide: 'GRABPASS_ARGS',
-            useValue: args
+    static forRoot(options) {
+        const grabpassModuleOptionsProvider = {
+            provide: grabpass_constants_1.GRABPASS_MODULE_OPTIONS,
+            useValue: options
+        };
+        const grabpassProvider = {
+            provide: grabpass_constants_1.GRABPASS,
+            useFactory: (options) => {
+                return new grabpass_1.Grabpass({
+                    config: options.config
+                });
+            },
+            inject: [grabpass_constants_1.GRABPASS_MODULE_OPTIONS]
         };
         return {
             module: GrabpassModule_1,
-            providers: [grabpassArgsProvider, grabpass_provider_1.grabpassProvider, grabpass_service_1.GrabpassService]
+            providers: [grabpassModuleOptionsProvider, grabpassProvider]
         };
     }
 };
 exports.GrabpassModule = GrabpassModule;
 exports.GrabpassModule = GrabpassModule = GrabpassModule_1 = __decorate([
+    (0, common_1.Global)(),
     (0, common_1.Module)({
         providers: [grabpass_service_1.GrabpassService],
         exports: [grabpass_service_1.GrabpassService]
