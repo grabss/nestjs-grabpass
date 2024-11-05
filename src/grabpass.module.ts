@@ -4,13 +4,26 @@ import { Grabpass } from 'grabpass'
 import { GRABPASS, GRABPASS_MODULE_OPTIONS } from './grabpass.constants'
 import { GrabpassModuleOptions } from './grabpass.interface'
 import { GrabpassService } from './grabpass.service'
-import { GrabpassGraphqlAuthGuard } from './graphql/auth-decorators'
+import {
+  GrabpassGraphqlAuthGuard,
+  GrabpassGraphqlAuthInterceptor
+} from './graphql/auth-decorators'
 import { GrabpassRestAuthGuard } from './rest/auth-decorators'
 
 @Global()
 @Module({
-  providers: [GrabpassGraphqlAuthGuard, GrabpassRestAuthGuard, GrabpassService],
-  exports: [GrabpassGraphqlAuthGuard, GrabpassRestAuthGuard, GrabpassService]
+  providers: [
+    GrabpassGraphqlAuthGuard,
+    GrabpassGraphqlAuthInterceptor,
+    GrabpassRestAuthGuard,
+    GrabpassService
+  ],
+  exports: [
+    GrabpassGraphqlAuthGuard,
+    GrabpassGraphqlAuthInterceptor,
+    GrabpassRestAuthGuard,
+    GrabpassService
+  ]
 })
 export class GrabpassModule {
   static forRoot(options: GrabpassModuleOptions): DynamicModule {
