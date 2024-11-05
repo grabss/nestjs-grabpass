@@ -35,7 +35,8 @@
     "@nestjs/common": "^10.0.0",
     "@nestjs/graphql": "^12.2.1",
     "@nestjs/platform-express": "^10.0.0",
-    "grabpass": "0.1.3"
+    "grabpass": "0.1.3",
+    "graphql": "^16.9.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.0.0",
