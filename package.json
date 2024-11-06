@@ -13,14 +13,17 @@
   "exports": {
     ".": {
       "import": "./dist/index.js",
+      "require": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
     "./graphql": {
       "import": "./dist/graphql/index.js",
+      "require": "./dist/graphql/index.js",
       "types": "./dist/graphql/index.d.ts"
     },
     "./rest": {
       "import": "./dist/rest/index.js",
+      "require": "./dist/rest/index.js",
       "types": "./dist/rest/index.d.ts"
     }
   },
