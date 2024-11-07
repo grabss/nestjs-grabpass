@@ -16,10 +16,12 @@
       "types": "./dist/index.d.ts"
     },
     "./dist/graphql": {
+      "main": "./dist/graphql/index.js",
       "import": "./dist/graphql/index.js",
       "types": "./dist/graphql/index.d.ts"
     },
     "./dist/rest": {
+      "main": "./dist/rest/index.js",
       "import": "./dist/rest/index.js",
       "types": "./dist/rest/index.d.ts"
     }
