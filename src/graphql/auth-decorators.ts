@@ -22,6 +22,10 @@ import type { Grabpass } from 'grabpass'
 
 const GRABPASS_AUTH_CONTEXT = 'GRABPASS_AUTH_CONTEXT'
 
+export type AuthContext = {
+  id: number
+}
+
 export const AuthContext = createParamDecorator(
   (_, context: ExecutionContext) => {
     const req: Request = GqlExecutionContext.create(context).getContext().req
@@ -35,7 +39,7 @@ export function Auth() {
 
 @Injectable()
 export class GrabpassGraphqlAuthGuard implements CanActivate {
-  constructor(@Inject(GRABPASS) private readonly grabpass: Grabpass) {}
+  constructor(private readonly grabpass: Grabpass) {}
 
   canActivate(context: ExecutionContext) {
     const req: Request = GqlExecutionContext.create(context).getContext().req
@@ -48,7 +52,11 @@ export class GrabpassGraphqlAuthGuard implements CanActivate {
     const accessToken = authorization.replace('Bearer ', '')
 
     try {
-      req[GRABPASS_AUTH_CONTEXT] = this.grabpass.verifyAccessToken(accessToken)
+      req[GRABPASS_AUTH_CONTEXT] = (({ id }: AuthContext) => {
+        return {
+          id
+        }
+      })(this.grabpass.verifyAccessToken(accessToken))
     } catch {
       throw new UnauthorizedException()
     }
@@ -73,8 +81,11 @@ export class GrabpassGraphqlAuthInterceptor implements NestInterceptor {
       const accessToken = authorization.replace('Bearer ', '')
 
       try {
-        req[GRABPASS_AUTH_CONTEXT] =
-          this.grabpass.verifyAccessToken(accessToken)
+        req[GRABPASS_AUTH_CONTEXT] = (({ id }: AuthContext) => {
+          return {
+            id
+          }
+        })(this.grabpass.verifyAccessToken(accessToken))
       } catch {}
     }
     return next.handle()
