@@ -38,7 +38,11 @@ let GrabpassGraphqlAuthGuard = class GrabpassGraphqlAuthGuard {
         }
         const accessToken = authorization.replace('Bearer ', '');
         try {
-            req[GRABPASS_AUTH_CONTEXT] = this.grabpass.verifyAccessToken(accessToken);
+            req[GRABPASS_AUTH_CONTEXT] = (({ id }) => {
+                return {
+                    id
+                };
+            })(this.grabpass.verifyAccessToken(accessToken));
         }
         catch {
             throw new common_1.UnauthorizedException();
@@ -49,7 +53,6 @@ let GrabpassGraphqlAuthGuard = class GrabpassGraphqlAuthGuard {
 exports.GrabpassGraphqlAuthGuard = GrabpassGraphqlAuthGuard;
 exports.GrabpassGraphqlAuthGuard = GrabpassGraphqlAuthGuard = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, common_1.Inject)(grabpass_constants_1.GRABPASS)),
     __metadata("design:paramtypes", [Function])
 ], GrabpassGraphqlAuthGuard);
 function UseAuthContext() {
@@ -65,8 +68,11 @@ let GrabpassGraphqlAuthInterceptor = class GrabpassGraphqlAuthInterceptor {
         if (authorization && authorization.startsWith('Bearer ')) {
             const accessToken = authorization.replace('Bearer ', '');
             try {
-                req[GRABPASS_AUTH_CONTEXT] =
-                    this.grabpass.verifyAccessToken(accessToken);
+                req[GRABPASS_AUTH_CONTEXT] = (({ id }) => {
+                    return {
+                        id
+                    };
+                })(this.grabpass.verifyAccessToken(accessToken));
             }
             catch { }
         }

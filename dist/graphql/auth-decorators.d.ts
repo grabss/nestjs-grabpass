@@ -1,5 +1,8 @@
 import type { CallHandler, CanActivate, ExecutionContext, NestInterceptor } from '@nestjs/common';
 import type { Grabpass } from 'grabpass';
+export type AuthContext = {
+    id: number;
+};
 export declare const AuthContext: (...dataOrPipes: any[]) => ParameterDecorator;
 export declare function Auth(): <TFunction extends Function, Y>(target: TFunction | object, propertyKey?: string | symbol, descriptor?: TypedPropertyDescriptor<Y>) => void;
 export declare class GrabpassGraphqlAuthGuard implements CanActivate {

@@ -12,8 +12,6 @@ const common_1 = require("@nestjs/common");
 const grabpass_1 = require("grabpass");
 const grabpass_constants_1 = require("./grabpass.constants");
 const grabpass_service_1 = require("./grabpass.service");
-const auth_decorators_1 = require("./graphql/auth-decorators");
-const auth_decorators_2 = require("./rest/auth-decorators");
 let GrabpassModule = GrabpassModule_1 = class GrabpassModule {
     static forRoot(options) {
         const grabpassModuleOptionsProvider = {
@@ -31,26 +29,18 @@ let GrabpassModule = GrabpassModule_1 = class GrabpassModule {
         };
         return {
             module: GrabpassModule_1,
-            providers: [grabpassModuleOptionsProvider, grabpassProvider]
+            providers: [
+                grabpassModuleOptionsProvider,
+                grabpassProvider,
+                grabpass_service_1.GrabpassService
+            ],
+            exports: [grabpass_service_1.GrabpassService]
         };
     }
 };
 exports.GrabpassModule = GrabpassModule;
 exports.GrabpassModule = GrabpassModule = GrabpassModule_1 = __decorate([
     (0, common_1.Global)(),
-    (0, common_1.Module)({
-        providers: [
-            auth_decorators_1.GrabpassGraphqlAuthGuard,
-            auth_decorators_1.GrabpassGraphqlAuthInterceptor,
-            auth_decorators_2.GrabpassRestAuthGuard,
-            grabpass_service_1.GrabpassService
-        ],
-        exports: [
-            auth_decorators_1.GrabpassGraphqlAuthGuard,
-            auth_decorators_1.GrabpassGraphqlAuthInterceptor,
-            auth_decorators_2.GrabpassRestAuthGuard,
-            grabpass_service_1.GrabpassService
-        ]
-    })
+    (0, common_1.Module)({})
 ], GrabpassModule);
 //# sourceMappingURL=grabpass.module.js.map
