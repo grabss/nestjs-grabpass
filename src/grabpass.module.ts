@@ -6,10 +6,7 @@ import { GrabpassModuleOptions } from './grabpass.interface'
 import { GrabpassService } from './grabpass.service'
 
 @Global()
-@Module({
-  providers: [GrabpassService],
-  exports: [GrabpassService]
-})
+@Module({})
 export class GrabpassModule {
   static forRoot(options: GrabpassModuleOptions): DynamicModule {
     const grabpassModuleOptionsProvider: Provider = {
@@ -29,7 +26,12 @@ export class GrabpassModule {
 
     return {
       module: GrabpassModule,
-      providers: [grabpassModuleOptionsProvider, grabpassProvider]
+      providers: [
+        grabpassModuleOptionsProvider,
+        grabpassProvider,
+        GrabpassService
+      ],
+      exports: [GrabpassService]
     }
   }
 }

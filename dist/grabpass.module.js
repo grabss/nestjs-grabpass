@@ -29,16 +29,18 @@ let GrabpassModule = GrabpassModule_1 = class GrabpassModule {
         };
         return {
             module: GrabpassModule_1,
-            providers: [grabpassModuleOptionsProvider, grabpassProvider]
+            providers: [
+                grabpassModuleOptionsProvider,
+                grabpassProvider,
+                grabpass_service_1.GrabpassService
+            ],
+            exports: [grabpass_service_1.GrabpassService]
         };
     }
 };
 exports.GrabpassModule = GrabpassModule;
 exports.GrabpassModule = GrabpassModule = GrabpassModule_1 = __decorate([
     (0, common_1.Global)(),
-    (0, common_1.Module)({
-        providers: [grabpass_service_1.GrabpassService],
-        exports: [grabpass_service_1.GrabpassService]
-    })
+    (0, common_1.Module)({})
 ], GrabpassModule);
 //# sourceMappingURL=grabpass.module.js.map
