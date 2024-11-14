@@ -13,6 +13,7 @@ exports.GrabpassRestAuthInterceptor = exports.GrabpassRestAuthGuard = exports.Au
 exports.Auth = Auth;
 exports.UseAuthContext = UseAuthContext;
 const common_1 = require("@nestjs/common");
+const grabpass_service_1 = require("../grabpass.service");
 const GRABPASS_AUTH_CONTEXT = 'GRABPASS_AUTH_CONTEXT';
 exports.AuthContext = (0, common_1.createParamDecorator)((_, context) => {
     const req = context.switchToHttp().getRequest();
@@ -48,7 +49,7 @@ let GrabpassRestAuthGuard = class GrabpassRestAuthGuard {
 exports.GrabpassRestAuthGuard = GrabpassRestAuthGuard;
 exports.GrabpassRestAuthGuard = GrabpassRestAuthGuard = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [Function])
+    __metadata("design:paramtypes", [grabpass_service_1.GrabpassService])
 ], GrabpassRestAuthGuard);
 function UseAuthContext() {
     return (0, common_1.applyDecorators)((0, common_1.UseInterceptors)(GrabpassRestAuthInterceptor));
@@ -77,6 +78,6 @@ let GrabpassRestAuthInterceptor = class GrabpassRestAuthInterceptor {
 exports.GrabpassRestAuthInterceptor = GrabpassRestAuthInterceptor;
 exports.GrabpassRestAuthInterceptor = GrabpassRestAuthInterceptor = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [Function])
+    __metadata("design:paramtypes", [grabpass_service_1.GrabpassService])
 ], GrabpassRestAuthInterceptor);
 //# sourceMappingURL=auth-decorators.js.map

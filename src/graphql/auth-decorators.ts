@@ -8,7 +8,8 @@ import {
 } from '@nestjs/common'
 import { GqlExecutionContext } from '@nestjs/graphql'
 
-import type { GrabpassService } from '../grabpass.service'
+import { GrabpassService } from '../grabpass.service'
+
 import type {
   CallHandler,
   CanActivate,

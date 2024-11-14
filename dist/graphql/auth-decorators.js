@@ -14,6 +14,7 @@ exports.Auth = Auth;
 exports.UseAuthContext = UseAuthContext;
 const common_1 = require("@nestjs/common");
 const graphql_1 = require("@nestjs/graphql");
+const grabpass_service_1 = require("../grabpass.service");
 const GRABPASS_AUTH_CONTEXT = 'GRABPASS_AUTH_CONTEXT';
 exports.AuthContext = (0, common_1.createParamDecorator)((_, context) => {
     const req = graphql_1.GqlExecutionContext.create(context).getContext().req;
@@ -49,7 +50,7 @@ let GrabpassGraphqlAuthGuard = class GrabpassGraphqlAuthGuard {
 exports.GrabpassGraphqlAuthGuard = GrabpassGraphqlAuthGuard;
 exports.GrabpassGraphqlAuthGuard = GrabpassGraphqlAuthGuard = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [Function])
+    __metadata("design:paramtypes", [grabpass_service_1.GrabpassService])
 ], GrabpassGraphqlAuthGuard);
 function UseAuthContext() {
     return (0, common_1.applyDecorators)((0, common_1.UseInterceptors)(GrabpassGraphqlAuthInterceptor));
@@ -78,6 +79,6 @@ let GrabpassGraphqlAuthInterceptor = class GrabpassGraphqlAuthInterceptor {
 exports.GrabpassGraphqlAuthInterceptor = GrabpassGraphqlAuthInterceptor;
 exports.GrabpassGraphqlAuthInterceptor = GrabpassGraphqlAuthInterceptor = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [Function])
+    __metadata("design:paramtypes", [grabpass_service_1.GrabpassService])
 ], GrabpassGraphqlAuthInterceptor);
 //# sourceMappingURL=auth-decorators.js.map

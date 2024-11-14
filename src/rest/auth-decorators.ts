@@ -7,7 +7,8 @@ import {
   UseInterceptors
 } from '@nestjs/common'
 
-import type { GrabpassService } from '../grabpass.service'
+import { GrabpassService } from '../grabpass.service'
+
 import type {
   CallHandler,
   CanActivate,
