@@ -1,4 +1,4 @@
-import { GrabpassService } from '../grabpass.service';
+import type { GrabpassService } from '../grabpass.service';
 import type { CallHandler, CanActivate, ExecutionContext, NestInterceptor } from '@nestjs/common';
 export type AuthContext = {
     id: number;

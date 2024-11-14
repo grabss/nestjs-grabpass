@@ -8,16 +8,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GrabpassGraphqlAuthInterceptor = exports.GrabpassGraphqlAuthGuard = exports.AuthContext = void 0;
 exports.Auth = Auth;
 exports.UseAuthContext = UseAuthContext;
 const common_1 = require("@nestjs/common");
 const graphql_1 = require("@nestjs/graphql");
-const grabpass_constants_1 = require("../grabpass.constants");
 const GRABPASS_AUTH_CONTEXT = 'GRABPASS_AUTH_CONTEXT';
 exports.AuthContext = (0, common_1.createParamDecorator)((_, context) => {
     const req = graphql_1.GqlExecutionContext.create(context).getContext().req;
@@ -82,7 +78,6 @@ let GrabpassGraphqlAuthInterceptor = class GrabpassGraphqlAuthInterceptor {
 exports.GrabpassGraphqlAuthInterceptor = GrabpassGraphqlAuthInterceptor;
 exports.GrabpassGraphqlAuthInterceptor = GrabpassGraphqlAuthInterceptor = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, common_1.Inject)(grabpass_constants_1.GRABPASS)),
     __metadata("design:paramtypes", [Function])
 ], GrabpassGraphqlAuthInterceptor);
 //# sourceMappingURL=auth-decorators.js.map

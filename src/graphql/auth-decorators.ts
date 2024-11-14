@@ -1,7 +1,6 @@
 import {
   applyDecorators,
   createParamDecorator,
-  Inject,
   Injectable,
   UnauthorizedException,
   UseGuards,
@@ -9,8 +8,7 @@ import {
 } from '@nestjs/common'
 import { GqlExecutionContext } from '@nestjs/graphql'
 
-import { GRABPASS } from '../grabpass.constants'
-
+import type { GrabpassService } from '../grabpass.service'
 import type {
   CallHandler,
   CanActivate,
@@ -18,7 +16,6 @@ import type {
   NestInterceptor
 } from '@nestjs/common'
 import type { Request } from 'express'
-import type { Grabpass } from 'grabpass'
 
 const GRABPASS_AUTH_CONTEXT = 'GRABPASS_AUTH_CONTEXT'
 
@@ -39,7 +36,7 @@ export function Auth() {
 
 @Injectable()
 export class GrabpassGraphqlAuthGuard implements CanActivate {
-  constructor(private readonly grabpass: Grabpass) {}
+  constructor(private readonly grabpass: GrabpassService) {}
 
   canActivate(context: ExecutionContext) {
     const req: Request = GqlExecutionContext.create(context).getContext().req
@@ -71,7 +68,7 @@ export function UseAuthContext() {
 
 @Injectable()
 export class GrabpassGraphqlAuthInterceptor implements NestInterceptor {
-  constructor(@Inject(GRABPASS) private readonly grabpass: Grabpass) {}
+  constructor(private readonly grabpass: GrabpassService) {}
 
   intercept(context: ExecutionContext, next: CallHandler) {
     const req: Request = GqlExecutionContext.create(context).getContext().req
