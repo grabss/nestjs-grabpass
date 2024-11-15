@@ -5,4 +5,4 @@ src
 node_modules
 .gitignore
 yarn.lock
-dist/**/*.tsbuildinfo
+*.tsbuildinfo
