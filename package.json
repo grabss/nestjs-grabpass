@@ -1,6 +1,6 @@
 {
   "name": "nestjs-grabpass",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "NestJS wrapper for grabpass.",
   "license": "MIT",
   "author": "grabss Inc.",
