@@ -1,7 +1,7 @@
 {
   "name": "nestjs-grabpass",
   "version": "0.1.0",
-  "description": "",
+  "description": "NestJS wrapper for grabpass.",
   "license": "MIT",
   "author": "grabss Inc.",
   "homepage": "https://grabss.co.jp",
@@ -9,6 +9,11 @@
     "type": "git",
     "url": "https://github.com/grabss/nestjs-grabpass.git"
   },
+  "keywords": [
+    "nestjs",
+    "grabpass",
+    "auth"
+  ],
   "main": "dist/index.js",
   "exports": {
     ".": {
